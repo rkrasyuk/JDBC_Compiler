@@ -59,21 +59,13 @@ public class Compiler {
             System.out.println("Creating list of invalids...");
             while (res1.next()) {
                 counter++;
+		new Thread(new Recompiler(res2.getString("CLASS_ID"), res2.getString("SHORT_NAME"), res2.getString("STATUS"))).start();
+                Thread.sleep(400);
                 rdr1.write(res1.getRow() + " id:" + res1.getLong("ID") + " [" + res1.getString("CLASS_ID") + "].[" + res1.getString("SHORT_NAME") + "] is " + res1.getString("STATUS") + "\n");
             }
             wrt1.write("Total of invalid/processed methods: " + counter);
             wrt1.flush();
             System.out.print("Done. ");
-
-            //create recompile threads
-            System.out.println("Starting recompile...");
-            ResultSet res2 = stmnt.executeQuery("SELECT * FROM methods WHERE (status='PROCESSED' OR status='INVALID') AND id <> 'STDLIB'");
-
-            while (res2.next()) {
-                new Thread(new Recompiler(res2.getString("CLASS_ID"), res2.getString("SHORT_NAME"), res2.getString("STATUS"))).start();
-                Thread.sleep(400);
-            }
-
             wrt1.close();
             System.out.println("All recompile threads are created. Please wait until the program finishes working...");
             Compiler.pswrd = "0000000000";

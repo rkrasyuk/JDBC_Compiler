@@ -13,9 +13,9 @@ public class Compiler {
 
     public static void main(String[] args) {
         HashMap<String, String> map = new HashMap<>();
-        map.put("EKSSILVER", "jdbc:oracle:thin:@//silver03.sbrf.ru:1521/EKSSILVER");
-        map.put("EKSGOLD", "jdbc:oracle:thin:@//gold03.sbrf.ru:1521/EKSGOLD");
-        map.put("EKSPLATINUM", "jdbc:oracle:thin:@//platinum03.sbrf.ru:1521/EKSPLATINUM");
+        map.put("EKSSILVER", "jdbc:oracle:thin:@//silver03.ru:1521/EKSSILVER");
+        map.put("EKSGOLD", "jdbc:oracle:thin:@//gold03.ru:1521/EKSGOLD");
+        map.put("EKSPLATINUM", "jdbc:oracle:thin:@//platinum03.ru:1521/EKSPLATINUM");
 
         try {
             System.out.println("");

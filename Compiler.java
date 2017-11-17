@@ -61,7 +61,7 @@ public class Compiler {
                 counter++;
 		new Thread(new Recompiler(res2.getString("CLASS_ID"), res2.getString("SHORT_NAME"), res2.getString("STATUS"))).start();
                 Thread.sleep(400);
-                rdr1.write(res1.getRow() + " id:" + res1.getLong("ID") + " [" + res1.getString("CLASS_ID") + "].[" + res1.getString("SHORT_NAME") + "] is " + res1.getString("STATUS") + "\n");
+                wrt1.write(res1.getRow() + " id:" + res1.getLong("ID") + " [" + res1.getString("CLASS_ID") + "].[" + res1.getString("SHORT_NAME") + "] is " + res1.getString("STATUS") + "\n");
             }
             wrt1.write("Total of invalid/processed methods: " + counter);
             wrt1.flush();
